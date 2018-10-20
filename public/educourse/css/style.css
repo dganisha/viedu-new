@@ -954,6 +954,15 @@ ul.filter li a i.icon5{
 .view:hover .sale{
 	display:none;
 }
+i.icon{
+	width: 67px;
+	height: 67px;
+	background: url(../images/img-sprite.png)no-repeat -91px -93px;
+	display: block;
+	position: absolute;
+	bottom:100px;
+	right:93px;
+}
 i.home{
 	width: 67px;
 	height: 67px;

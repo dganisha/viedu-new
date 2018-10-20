@@ -22,6 +22,7 @@
     </script>
     <!--webfont-->
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="{{ asset('educourse/js/jquery-1.11.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('educourse/js/login.js') }}"></script>
     <script src="{{ asset('educourse/js/jquery.easydropdown.js') }}"></script>
@@ -34,64 +35,12 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="col-sm-8 header-left">
-            <div class="logo">
-                <a href="index.html"><img src="{{ asset('educourse/images/logo.png') }}" alt="" /></a>
-            </div>
-            <div class="menu">
-                <a class="toggleMenu" href="#"><img src="{{ asset('educourse/images/nav.png') }}" alt="" /></a>
-                <ul class="nav" id="nav">
-                    <li class="active"><a href="index.html">Reality</a></li>
-                    <li><a href="living.html">Living</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="entertain.html">Entertainment</a></li>
-                    <li><a href="404.html">Mobility</a></li>
-                    <div class="clearfix"></div>
-                </ul>
-                <script type="text/javascript" src="{{ asset('educourse/js/responsive-nav.js') }}"></script>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="col-sm-4 header_right">
-            <div id="loginContainer">
-                <a href="#"><img src="{{ asset('educourse/images/login.png') }}"><span>Login</span></a>
-                <a href="#"><i class="user"></i><span>Register</span></a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
+    <!-- HEADER -->
+    @include('include.header')
+
     <div class="banner">
         <div class="container_wrap">
-            <h1>What are you looking for?</h1>
-            <div class="dropdown-buttons">
-                <div class="dropdown-button">
-                    <select>
-                        <option selected="" tabindex="9" style="display:none;color:#eee;">Dubai</option>
-                        <option>Australia</option>
-                        <option>Sri Lanka</option>
-                        <option>Newzeland</option>
-                        <option>Pakistan</option>
-                        <option>United Kingdom</option>
-                        <option>United states</option>
-                        <option>Russia</option>
-                        <option>Mirum</option>
-                    </select>
-                </div>
-                <div class="dropdown-button">
-                    <select>
-                        <option selected="" tabindex="9" style="display:none;color:#eee;">Education</option>
-                        <option>tempor</option>
-                        <option>congue</option>
-                        <option>mazim</option>
-                        <option>mutationem</option>
-                        <option>hendrerit</option>
-                        <option>mutationem</option>
-                        <option>hendrerit</option>
-                    </select>
-                </div>
-            </div>
+            <h1>Hi {{ Auth::user()->name }}! What are you looking for?</h1>
             <form>
                 <input type="text" value="Keyword, name, date, ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Keyword, name, date, ...';}">
                 <div class="contact_btn">
@@ -103,51 +52,79 @@
             <div class="clearfix"></div>
         </div>
     </div>
+    <div class="content_top">
+      <div class="container">
+        <div class="col-md-4 bottom_nav">
+           <div class="content_menu">
+                <ul>
+                    <li class="active"><a href="#">Recommended</a></li> 
+                    <li><a href="#">Latest</a></li> 
+                    <li><a href="#">Highlights</a></li> 
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 filter_grid">
+            <ul class="filter">
+                <li><a href=""> <i class="icon1"> </i> </a></li>
+                <li><a href=""> <i class="icon2"> </i> </a></li>
+                <li><a href=""> <i class="icon3"> </i> </a></li>
+                <li><a href=""> <i class="icon4"> </i> </a></li>
+                <li><a href=""> <i class="icon5"> </i> </a></li>
+            </ul>
+        </div>
+      </div>
+    </div>
 
-    <!-- Main Content -->
-    @yield('content')
-
-    <div class="footer">
+    <div class="content_middle">
         <div class="container">
-            <div class="footer_grids">
-                <div class="footer-grid">
-                    <h4>Ipsum Quis</h4>
-                    <ul class="list1">
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Mirum est</a></li>
-                        <li><a href="#">placerat facer</a></li>
-                        <li><a href="#">claritatem</a></li>
-                        <li><a href="#">sollemnes </a></li>
-                    </ul>
-                </div>
-                <div class="footer-grid">
-                    <h4>Quis Ipsum</h4>
-                    <ul class="list1">
-                        <li><a href="#">placerat facer</a></li>
-                        <li><a href="#">claritatem</a></li>
-                        <li><a href="#">sollemnes </a></li>
-                        <li><a href="#">Claritas</a></li>
-                        <li><a href="#">Mirum est</a></li>
-                    </ul>
-                </div>
-                <div class="footer-grid last_grid">
-                    <h4>Follow Us</h4>
-                    <ul class="footer_social wow fadeInLeft" data-wow-delay="0.4s">
-                        <li>
-                            <a href=""> <i class="fb"> </i> </a>
-                        </li>
-                        <li><a href=""><i class="tw"> </i> </a></li>
-                        <li><a href=""><i class="google"> </i> </a></li>
-                        <li><a href=""><i class="u_tube"> </i> </a></li>
-                    </ul>
-                    <div class="copy wow fadeInRight" data-wow-delay="0.4s">
-                        <p>© 2014 Duhoot. Template by <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+            <div class="content_middle_box">
+                <div class="top_grid">
+                    <div class="col-md-3">
+                      <div class="grid1">
+                        <div class="view view-first">
+                          <div class="index_img"><img src="{{ asset('educourse/images/pic1.jpg') }}" class="img-responsive" alt=""/></div>
+                            <div class="sale">Rp. 500.000,-</div>
+                              <div class="mask">
+                                <div class="info"><i class="fa fa-link"></i> Show More..</div>
+                               </div>
+                           </div> 
+                         <div class="inner_wrap">
+                            <h3>Kursus Tutorial Pemograman Berbasis Website Laravel 5.7</h3>
+                            <ul class="star1">
+                              <h4 class="green">Dhiemas Ganisha</h4>
+                              <li><a href="#"> <img src="{{ asset('educourse/images/star1.png') }}" alt="">(236)</a></li>
+                            </ul>
+                         </div>
+                       </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="grid1">
+                        <div class="view view-first">
+                          <div class="index_img1"><img src="{{ asset('educourse/images/pic6.jpg') }}" class="img-responsive" alt=""/></div>
+                             <div class="sale"><strike><small>$2.980</small></strike> $0</div>
+                             <div class="mask">
+                                <div class="info"><i class="fa fa-link"></i> Show More..</div>
+                              </div>
+                          </div> 
+                         <div class="inner_wrap">
+                            <h3>2 bedroom house for rent in Dubai</h3>
+                            <ul class="star1">
+                              <h4 class="yellow">Vision Agency</h4>
+                              <li><a href="#"> <img src="{{ asset('educourse/images/star1.png') }}" alt="">(136)</a></li>
+                            </ul>
+                         </div>
+                       </div>
                     </div>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
+    <!-- Main Content -->
+    @yield('content')
+
+    @include('include.footer');
 </body>
 
 </html>
