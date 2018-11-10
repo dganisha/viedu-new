@@ -1089,7 +1089,7 @@ ul.mask_img li.set{
 	-moz-border-radius: 100px;
 	-o-border-radius: 100px;
 	font-size: 0.8125em;
-	margin: 2em 0 1em;
+	margin: 6em 0 1em;
 	font-weight:100;
 }
 h3.m_4{
@@ -2127,8 +2127,20 @@ i.home, i.home1, i.home2{
 	right:70px;
 }
 .info {
-	padding: 5px 10px 2px;
-	font-size: 12px;
+    display: inline-block;
+	text-decoration: none;
+	padding: 8px 20px 5px;
+	background: none;
+	color: #fff;
+	text-transform: uppercase;
+	border: 2px solid #fff;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-o-border-radius: 100px;
+	font-size: 0.8125em;
+	margin: 6em 0 1em;
+	font-weight:100;
 }
 ul.mask_img li.star {
 	margin-right: 1em;
@@ -2539,8 +2551,7 @@ ul.filter li a i.icon3 {
 	left: 0px;
 }
 .view .mask, .view .content {
-	width: 243px;
-	height: 167px;
+	width: 100%;
 }
 .search-box {
 	display: none;

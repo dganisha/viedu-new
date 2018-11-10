@@ -1,0 +1,144 @@
+/* Global */
+  html,
+  body{
+    width: 100%!important;
+    height: 100%!important;
+  }
+
+  h5 {
+    letter-spacing: 3px;
+  }
+  .gallery,
+  .waketos,
+  .vismis,
+  .proker,
+  .saran{
+    padding: 5% 0;
+  }
+  .papb{
+    padding: 3% 0;
+  }
+  .waketos,.proker{
+    background-color: #eee;
+  }
+  .peta{
+    margin: 7% 2% 2% 2%!important;
+  }
+/* /Global */
+
+/* Proker */
+  .proker img{
+    width: 50%;
+  }
+  .content-kanan{
+    margin-top: 5%;
+    margin-left: 3%;
+  }
+/* /Proker */
+
+/* Gallery */
+  #lightgallery a img{
+    width: 33%;
+    max-height: 235px;
+    object-fit: cover;
+    object-position: top;
+    overflow: hidden;
+  }
+/* /Gallery */
+
+/*Button*/
+  .tombol{
+  margin-top: 5%;
+  width: 100%;
+  text-align: center;
+  }
+  .button{
+    padding: 0.5% 5%;
+    border: 3px solid transparent;
+    border-image: linear-gradient(40deg,#45cafc,#303f9f);
+    border-image-slice: 1;
+    background-color: inherit;
+    color:#0d47a1;
+    font-size: 20px;
+  }
+
+  .button:hover{
+    color: white;
+    cursor: pointer;
+    background: -webkit-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background:-o-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background:linear-gradient(40deg,#45cafc,#303f9f)!important;
+  }
+  .pills-info .nav-link.active{
+    background:-webkit-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background:-o-linear-gradient(50deg,#45cafc,#303f9f)!important;
+    background:linear-gradient(40deg,#45cafc,#303f9f)!important;
+  }
+/*/Button*/
+
+/* Navigation*/
+    .navbar {
+      background-color: white;
+    }
+    .navbar.navbar-dark .breadcrumb .nav-item .nav-link,
+    .navbar.navbar-dark .navbar-nav .nav-item .nav-link,
+    .navbar-brand{
+      color: black!important;
+    }
+    .navbar.navbar-dark form .md-form input{
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(40deg,#45cafc,#303f9f);
+      border-image-slice: 1;
+    }
+    .form-control,
+    .form-control::-webkit-input-placeholder{
+      color: black!important;
+    }
+    .scrolling-navbar {
+      transition: background .5s ease-in-out, padding .5s ease-in-out;
+    }
+    .top-nav-collapse {
+      background-color: white;
+    }
+    footer.page-footer {
+      background:-webkit-linear-gradient(50deg,#45cafc,#303f9f)!important;
+      background:-o-linear-gradient(50deg,#45cafc,#303f9f)!important;
+      background:linear-gradient(40deg,#45cafc,#303f9f)!important;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .navbar {
+        background-color: white;
+      }
+      .navbar.navbar-dark .breadcrumb .nav-item .nav-link,
+      .navbar.navbar-dark .navbar-nav .nav-item .nav-link,
+      .navbar-brand{
+        color: black!important;
+      }
+      .navbar.navbar-dark form .md-form input{
+      border-bottom: 2px solid transparent;
+      border-image: linear-gradient(40deg,#45cafc,#303f9f);
+      border-image-slice: 1;
+      }
+      .form-control,
+      .form-control::-webkit-input-placeholder{
+        color: black!important;
+      }
+    }
+/*End Navigation*/
+
+/* Parallax */
+  .jarallax {
+    height: 100vh;
+  }
+/* /Parallax */
+
+/* Media */
+  @media (max-width: 740px) {
+    html,
+    body,
+    .jarallax {
+      height: 100vh;
+    }
+  }
+/* /Media */

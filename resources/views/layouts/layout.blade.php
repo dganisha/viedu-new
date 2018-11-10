@@ -38,6 +38,7 @@
     <!-- HEADER -->
     @include('include.header')
 
+    @if(Request::segment(1) == 'home')
     <div class="banner">
         <div class="container_wrap">
             <h1>Hi {{ Auth::user()->name }}! What are you looking for?</h1>
@@ -74,7 +75,9 @@
         </div>
       </div>
     </div>
+    @endif
 
+    @if(Request::segment(1) == 'home')
     <div class="content_middle">
         <div class="container">
             <div class="content_middle_box">
@@ -121,10 +124,11 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- Main Content -->
     @yield('content')
 
-    @include('include.footer');
+    @include('include.footer')
 </body>
 
 </html>

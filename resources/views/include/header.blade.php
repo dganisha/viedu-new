@@ -11,7 +11,7 @@
                     @if(Auth::user()->role == 'administrator')
                         <li><a href="#">Admin Menu</a></li>
                     @elseif(Auth::user()->role == 'teacher')
-                        <li><a href="#">My Videos</a></li>
+                        <li><a href="/vendor/project">My Videos</a></li>
                     @endif
                     <li><a href="{{ route('logout') }}"
                           onclick="event.preventDefault();

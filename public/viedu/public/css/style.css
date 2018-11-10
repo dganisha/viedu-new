@@ -1,0 +1,55 @@
+.svideo .judul,
+.svideo .desk,
+.svideo .module,
+.vid h5{
+	text-align: left;
+}
+.svideo .judul,
+.svideo .desk,
+.svideo .module,
+.svideo .module ul,
+.vid{
+	margin-top: 5%;
+}
+.svideo{
+	margin-bottom: 5%;
+}
+.svideo .module ul{
+	padding-bottom: 2%;
+}
+.module ul li i,
+.module ul li .dkanan span{
+	font-weight: bold;
+}
+.border-left{
+	border-left: 5px solid #212529!important;
+}
+.svideo .judul{
+	border-bottom: 1px solid #212529;
+}
+
+.module ul li{
+	list-style-type: none;
+	margin-bottom: 3%;
+}
+.module ul li i{
+	font-size: 50px;
+}
+.module ul li .dkanan{
+	text-indent: 20px;
+}
+.avatar{
+	width: 120px;
+	height: 120px;
+}
+.avatar img{
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+}
+.form-control{
+	width: 30em!important;
+}
+.vid h5{
+	color: white;
+}
