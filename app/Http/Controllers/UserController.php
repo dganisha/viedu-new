@@ -12,7 +12,8 @@ class UserController extends Controller
 	public function home()
 	{
 		$data_video = Video::limit(3)->inRandomOrder()->get();
-		return view('users.home', compact('data_video'));
+		$data_project = Project::limit(3)->inRandomOrder()->get();
+		return view('users.home', compact('data_video','data_project'));
 	}
 
     public function nonton_vid()

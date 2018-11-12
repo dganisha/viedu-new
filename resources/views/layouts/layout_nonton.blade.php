@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Learn</title>
+    <title>Viedu - Belajar apapun sekarang mudah !</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- Bootstrap core CSS -->
@@ -123,7 +123,7 @@
                 <p>Learn</p>
             </div>
             <form class="form-inline active-cyan-4">
-              <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Cari tutorial..." aria-label="Search">
               <i class="fa fa-search" aria-hidden="true"></i>
             </form>
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
