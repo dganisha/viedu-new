@@ -6,8 +6,8 @@
 
                 <!--First column-->
                 <div class="col-md-3">
-                    <h5 class="text-uppercase font-weight-bold mb-4">Footer Content</h5>
-                    <p>Here you can use rows and columns here to organize your footer content.</p>
+                    <h5 class="text-uppercase font-weight-bold mb-4">Viedu</h5>
+                    <p>.</p>
                 </div>
                 <!--/.First column-->
 
@@ -15,7 +15,7 @@
 
                 <!--Second column-->
                 <div class="col-md-2 mx-auto">
-                    <h5 class="text-uppercase font-weight-bold mb-4">Links</h5>
+                    <h5 class="text-uppercase font-weight-bold mb-4"><a href="about/about">Tentang Viedu</a></h5>
                     <ul class="list-unstyled">
                         <li><a href="#!">Link 1</a></li>
                         <li><a href="#!">Link 2</a></li>

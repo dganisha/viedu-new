@@ -14,107 +14,36 @@
 				    	<div class="svideo">	
 						    <div class="embed-responsive embed-responsive-16by9">
 						    	<video controls>
-								  <source src="{{ asset('/viedu/public/video/1.mp4') }}" type="video/mp4">
+								  <source src="{{ asset($data_video->source_video) }}" type="video/mp4">
 								  <!-- <source src="public/video/1.mp4" type="video/ogg"> -->
 								  Your browser does not support HTML5 video.
 								</video>
 								<!-- <iframe class="embed-responsive-item"  src="public/video/1.mp4"></iframe> -->
 							</div>
 							<div class="judul">	
-								<h4>Tutorial membuat portfolio Laravel</h4>
-								<p>Category : Pemrograman Website</p>
+								<h4>{{ $data_video->title_video }} <i class="fa fa-star"></i></h4>
 							</div>
+
 							<div class="desk">
 								<h4>Description</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, aspernatur rerum sed eos doloremque! Error repellendus id cumque, tenetur, at quidem veniam praesentium omnis nisi nobis, quia atque reiciendis dolore.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, aspernatur rerum sed eos doloremque! Error repellendus id cumque, tenetur, at quidem veniam praesentium omnis nisi nobis, quia atque reiciendis dolore.</p>
-								<p><a href="#">Load More</a></p>
-							</div>
-							<div class="module">
-								<h4>Module</h4>
-								<ul class="border-left">
-									<li>
-										<div class="row">
-											<div class="col-sm-1">
-												<i class="fa fa-file-text-o"></i>
-											</div>
-											<div class="col-sm-11">
-												<div class="dkanan">
-													<span>Module 1</span>
-													<p>Untuk mendapatkan modul anda harus Login terlebih dahulu</p>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="row">
-											<div class="col-sm-1">
-												<i class="fa fa-code"></i>
-											</div>
-											<div class="col-sm-11">
-												<div class="dkanan">
-													<span>Module 2</span>
-													<p>Untuk mendapatkan modul anda harus Login terlebih dahulu</p>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="row">
-											<div class="col-sm-1">
-												<i class="fa fa-code"></i>
-											</div>
-											<div class="col-sm-11">
-												<div class="dkanan">
-													<span>Module 3</span>
-													<p>Untuk mendapatkan modul anda harus Login terlebih dahulu</p>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="row">
-											<div class="col-sm-1">
-												<i class="fa fa-file-text-o"></i>
-											</div>
-											<div class="col-sm-11">
-												<div class="dkanan">
-													<span>Module 4</span>
-													<p>Untuk mendapatkan modul anda harus Login terlebih dahulu</p>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="row">
-											<div class="col-sm-1">
-												<i class="fa fa-code"></i>
-											</div>
-											<div class="col-sm-11">
-												<div class="dkanan">
-													<span>Module 5</span>
-													<p>Untuk mendapatkan modul anda harus Login terlebih dahulu</p>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-								<p><a href="#">Load More</a></p>
+								<small><p>{{ $data_video->description_video }}</p></small>
+								<button type="button" class="btn btn-primary waves-effect" data-dismiss="modal" onclick="addFav()"><i class="fa fa-star"></i> Tambah ke Favorit</button>
 							</div>
 							<!-- Card -->
-								<div class="card testimonial-card">
+							<div class="card testimonial-card">
 
 								  <!-- Background color -->
 								  <div class="card-up indigo lighten-1"></div>
 
 								  <!-- Avatar -->
 								  <div class="avatar mx-auto white">
-								    <img src="{{ asset('/viedu/public/img/foto.jpg') }}" alt="User Image">
+								    <img src="{{ asset($data_video->project->user->url_foto) }}" alt="User Image">
 								  </div>
 
 								  <!-- Content -->
 								  <div class="card-body">
 								    <!-- Name -->
-								    <h4 class="card-title">M Akbar Satriadi</h4>
+								    <h4 class="card-title">{{ $data_video->project->user->name }}</h4>
 								    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
 								    <!-- Twitter -->
 								    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
@@ -122,10 +51,15 @@
 								    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
 								    <hr>
 								    <!-- Quotation -->
-								    <p><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p>
+								    <p><i class="fa fa-quote-left"></i><i> {{ $data_video->project->user->bio }} </i><i class="fa fa-quote-right"></i></p>
 								  </div>
-								</div>
+							</div>
 							<!-- Card -->
+							<div class="module">
+								<h4>About this Video</h4>
+								This video from channel <b>{{ $data_video->project->title }}</b>, for more video <a href="/member/subscribe/{{ urlSlug($data_video->project->title) }}/{{ $data_video->project->id }}">click here</a>
+							</div>
+
         				</div>
 					</div>
 				</div>

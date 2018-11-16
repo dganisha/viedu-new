@@ -23,11 +23,15 @@ Route::post('/login', 'LoginRegisterController@login_prs');
 Route::get('/register', 'LoginRegisterController@register');
 Route::post('/register', 'LoginRegisterController@register_prs');
 
+//Search Tutorial
+Route::get('/search', 'ProjectController@search')->name('search');
+
 
 //USER
 Route::group(['middleware' => ['auth']], function (){
 	Route::get('/home', 'UserController@home');
-	Route::get('/member/nonton/{id}', 'UserController@nonton_vid');
+	Route::get('/member/nonton/{id}', 'VideoController@nonton_vid');
+	Route::get('/member/profile','UserController@profile');
 });
 
 //VENDOR

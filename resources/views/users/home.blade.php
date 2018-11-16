@@ -65,7 +65,7 @@
                                 <h4 class="card-title">{{ $video->title_video }}</h4>
                                 <!--Text-->
                                 <p class="card-text">{{ $video->description_video }}</p>
-                                <a href="/member/nonton/{{ urlSlug($video->title_video) }}" target="_blank" class="btn btn-primary btn-md">Start tutorial
+                                <a href="/member/nonton/{{ urlSlug($video->title_video) }}-start{{ $video->id }}" target="_blank" class="btn btn-primary btn-md">Start tutorial
                                     <i class="fa fa-play ml-2"></i>
                                 </a>
                             </div>
