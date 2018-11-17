@@ -18,15 +18,16 @@
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
                 @if(!Auth::user())
                 <li class="nav-item">
-                    <a href="/login" class="nav-link"><i class="fa fa-sign-in"></i> <span class="clearfix d-none d-sm-inline-block">Login</span></a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/register" class="nav-link"><i class="fa fa-user-plus"></i> <span class="clearfix d-none d-sm-inline-block">Register</span></a>
+                    <a href="/login" class="nav-link" data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-sign-in"></i> <span class="clearfix d-none d-sm-inline-block">Login</span></a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a href="/member/profile" class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Account</span></a>
+                    @if(Auth::user()->role == 'teacher')
+                        @php $link = "/vendor/profile" @endphp
+                    @else   
+                        @php $link = "/member/profile" @endphp
+                    @endif
+                    <a href="{{ $link }}" class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Account</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link"

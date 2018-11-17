@@ -35,6 +35,7 @@
     <!--/.Double navigation-->
     
     <!--Main layout-->
+    @include('include.modal_loginregister')
     @yield('content')
     <!--/Main layout-->
 

@@ -69,6 +69,8 @@
 	            <ul class="list-unstyled list-inline">
 	                <li class="list-inline-item"><a href="/login" class="btn btn-success btn-rounded">Masuk</a></li>
 	                <li class="list-inline-item"><a href="/register" class="btn btn-success btn-rounded">Daftar</a></li>
+	                <li class="list-inline-item"><a href="/vendor/register" class="btn btn-success">Saya Pengajar</a></li>
+	                <li class="list-inline-item"><a href="/register" class="btn btn-primary">Saya Murid</a></li>
 	            </ul>
 	        </div>
 	        @endif
@@ -118,46 +120,6 @@
                 </div>
                 <!--Grid row-->
 
-                <!--Pagination-->
-                <nav class="d-flex justify-content-center wow fadeIn">
-                    <ul class="pagination pg-blue">
-
-                        <!--Arrow left-->
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">5</a>
-                        </li>
-
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!--Pagination-->
-
             </section>
             <!--Section: Cards-->
             <!--Section: Jumbotron-->
@@ -206,7 +168,6 @@
                                 <!--Title-->
                                 <h4 class="card-title">{{ $project->title }}</h4> 
                                 <!--Text-->
-                                <span class="btn btn-success btn-md"><strong>{{ getRupiah($project->price) }}</strong></span>
                                 <p class="card-text">{{ $project->description }}</p>
                                 <a href="/member/subscribe/{{ urlSlug($project->title) }}/{{ $project->id }}" target="_blank" class="btn btn-primary btn-md">Langganan Tutorial
                                     <i class="fa fa-shopping-cart ml-2"></i>
@@ -222,47 +183,6 @@
 
                 </div>
                 <!--Grid row-->
-
-                <!--Pagination-->
-                <nav class="d-flex justify-content-center wow fadeIn">
-                    <ul class="pagination pg-blue">
-
-                        <!--Arrow left-->
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </li>
-
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">5</a>
-                        </li>
-
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <!--Pagination-->
-
             </section>
             <!--Section: Cards-->
 
