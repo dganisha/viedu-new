@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 16 Nov 2018 pada 18.26
+-- Generation Time: 17 Nov 2018 pada 12.15
 -- Versi Server: 5.7.24-0ubuntu0.16.04.1
 -- PHP Version: 7.1.23-2+ubuntu16.04.1+deb.sury.org+1
 
@@ -51,7 +51,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2018_10_20_141635_create_table_videos', 2),
 (5, '2018_10_20_142448_edit_table_users', 3),
 (6, '2018_11_13_161703_create_table_orders', 4),
-(7, '2018_11_13_162141_create_table_favorites', 4);
+(7, '2018_11_13_162141_create_table_favorites', 4),
+(8, '2018_11_16_134648_create_table_teacher_confirmation', 5);
 
 -- --------------------------------------------------------
 
@@ -93,9 +94,9 @@ CREATE TABLE `projects` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `url_poster` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `price` int(11) NOT NULL,
-  `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) DEFAULT NULL,
+  `tag` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -106,7 +107,32 @@ CREATE TABLE `projects` (
 
 INSERT INTO `projects` (`id`, `title`, `description`, `url_poster`, `user_id`, `price`, `tag`, `type`, `created_at`, `updated_at`) VALUES
 (1, 'Laravel + Vue.Js', 'Memberikan full tutorial dari Laravel + Vue.Js dengan hasil akhir adalah aplikasi toko online', '/viedu/public/img/poster/poster5.jpg', 1, 800000, 'laravel,vuejs,toko online', 'Website', '2018-11-10 14:39:00', '2018-11-10 14:39:00'),
-(2, 'Matematika', 'Matematika dasar kelas 12', '/viedu/public/img/poster/poster5.jpg', 1, 0, 'matematika', 'Pelajaran', '2018-11-10 14:39:00', '2018-11-10 14:39:00');
+(2, 'Matematika', 'Matematika dasar kelas 12', '/viedu/public/img/poster/poster5.jpg', 1, 0, 'matematika', 'Pelajaran', '2018-11-10 14:39:00', '2018-11-10 14:39:00'),
+(5, 'Android Studio', 'android studio fundamental', '/viedu/public/img/poster/Android-Studio@4@1542425536/1542425536.jpg', 4, NULL, NULL, NULL, '2018-11-16 20:32:16', '2018-11-16 20:32:16');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `teacherconfirmations`
+--
+
+CREATE TABLE `teacherconfirmations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `bio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ktp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `verifikasi` enum('verified','non-verified') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `teacherconfirmations`
+--
+
+INSERT INTO `teacherconfirmations` (`id`, `user_id`, `bio`, `ktp`, `verifikasi`, `created_at`, `updated_at`) VALUES
+(1, 1, NULL, NULL, 'non-verified', '2018-11-16 12:00:00', '2018-11-16 12:00:00'),
+(3, 4, NULL, '8871791379319', 'non-verified', '2018-11-16 20:08:17', '2018-11-16 20:08:17');
 
 -- --------------------------------------------------------
 
@@ -135,8 +161,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `password`, `role`, `balance`, `bio`, `url_foto`, `remember_token`, `email_verified_at`, `created_at`, `updated_at`) VALUES
-(1, 'Dhiemas Ganisha', 'dhimasganisha@gmail.com', '087898292270', '$2y$10$H1KKocR/N.YX5gOU2NZpk.IQcGDy1Q9TcpQxI/Ne.RPS4ZFtU8ZVO', 'member', 10000, 'Dhiemas Ganteng', '/viedu/public/img/user/user.png', '4lZqRGSZcq3YyteISnNhwftWFMceN95wvRzDCV5spRIkmQAw1SQaqhwLiEFE', NULL, '2018-10-14 07:14:53', '2018-10-14 07:14:53'),
-(2, 'Angga Kahaerul', 'anggkahaerul20@gmail.com', '082822112', '$2y$10$0YeLaELgyh850q9RKpNshO4i.Uyh7E65clFl8aOjqpdmFZAZelXau', 'member', 0, NULL, '/viedu/public/img/user/user.png', 'vOPAcQYjGkxpNEel6otsUsqUIKqcFu7cYoNlyrlgniB6ogjeHF6zTQkHhlp4', NULL, '2018-11-13 06:07:57', '2018-11-13 06:07:57');
+(1, 'Dhiemas Ganisha', 'dhimasganisha@gmail.com', '087898292270', '$2y$10$H1KKocR/N.YX5gOU2NZpk.IQcGDy1Q9TcpQxI/Ne.RPS4ZFtU8ZVO', 'teacher', 10000, 'Dhiemas Ganteng', '/viedu/public/img/user/user.png', 'zKYYx9qLCXaIQfllbZrZCMzAbPluRdfYvFpXloGCiTwRRTq2kKt8EHcFyue1', NULL, '2018-10-14 07:14:53', '2018-10-14 07:14:53'),
+(2, 'Angga Kahaerul', 'anggkahaerul20@gmail.com', '082822112', '$2y$10$0YeLaELgyh850q9RKpNshO4i.Uyh7E65clFl8aOjqpdmFZAZelXau', 'member', 0, NULL, '/viedu/public/img/user/user.png', 'vOPAcQYjGkxpNEel6otsUsqUIKqcFu7cYoNlyrlgniB6ogjeHF6zTQkHhlp4', NULL, '2018-11-13 06:07:57', '2018-11-13 06:07:57'),
+(4, 'Guru 1', 'guru1@gmail.com', '086373178', '$2y$10$VZkDFTMjgC8m7ic1ImYZG.BjHIpbaDY/IxPSuC.kwJcQdvlXdn60y', 'teacher', 0, NULL, '/viedu/public/img/user/teacher.png', NULL, NULL, '2018-11-16 20:08:17', '2018-11-16 20:08:17');
 
 -- --------------------------------------------------------
 
@@ -205,6 +232,13 @@ ALTER TABLE `projects`
   ADD KEY `projects_user_id_foreign` (`user_id`);
 
 --
+-- Indexes for table `teacherconfirmations`
+--
+ALTER TABLE `teacherconfirmations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `teacherconfirmations_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -231,7 +265,7 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -241,12 +275,17 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `teacherconfirmations`
+--
+ALTER TABLE `teacherconfirmations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `videos`
 --
@@ -275,6 +314,12 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `projects`
   ADD CONSTRAINT `projects_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `teacherconfirmations`
+--
+ALTER TABLE `teacherconfirmations`
+  ADD CONSTRAINT `teacherconfirmations_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `videos`

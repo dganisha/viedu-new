@@ -35,8 +35,15 @@ Route::group(['middleware' => ['auth']], function (){
 });
 
 //VENDOR
+Route::get('/vendor/register', 'TeacherController@show_register');
+Route::post('/vendor/register', 'Auth\RegisterGuruController@register');
 Route::group(['middleware' => ['auth','VerifyVendor']], function (){
+	Route::get('/home', 'UserController@home');
+	Route::get('/vendor/profile','TeacherController@show_profile');
 	Route::get('/vendor/project', 'TeacherController@index');
+
+	//CHANNEL
+	Route::post('/vendor/channel/add', 'TeacherController@add_channel');
 });
 
 Auth::routes();
