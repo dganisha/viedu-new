@@ -20,6 +20,9 @@
     .modal-open-noscroll .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
       margin-right: 0!important;
     }
+    body{
+        padding: 0!important;
+    }
     </style>
     <!-- Material Design Bootstrap -->
     <link href="{{ asset('/viedu/public/css/mdb.min.css') }}" rel="stylesheet">
