@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('/viedu/public/css/bootstrap.min.css') }}" rel="stylesheet">
+    <style type="text/css">
+    body.modal-open-noscroll {
+      margin-right: 0!important;
+      overflow: hidden;
+    }
+    .modal-open-noscroll .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+      margin-right: 0!important;
+    }
+    </style>
     <!-- Material Design Bootstrap -->
     <link href="{{ asset('/viedu/public/css/mdb.min.css') }}" rel="stylesheet">
     @if (Request::segment(2) === 'nonton')
@@ -35,7 +44,9 @@
     <!--/.Double navigation-->
     
     <!--Main layout-->
+    @if(!Auth::user())
     @include('include.modal_loginregister')
+    @endif
     @yield('content')
     <!--/Main layout-->
 
@@ -64,7 +75,22 @@
         new WOW().init();
     
     </script>
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.modal').on('show.bs.modal', function () {
+          if ($(document).height() > $(window).height()) {
+            // no-scroll
+            $('body').addClass("modal-open-noscroll");
+          }
+          else { 
+            $('body').removeClass("modal-open-noscroll");
+          }
+        })
+        $('.modal').on('hide.bs.modal', function () {
+            $('body').removeClass("modal-open-noscroll");
+        })
+      })
+    </script>
 </body>
 
 </html>

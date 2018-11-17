@@ -67,10 +67,8 @@
             @if(!Auth::user())
             <div class="call-to-action text-center my-4">
 	            <ul class="list-unstyled list-inline">
-	                <li class="list-inline-item"><a href="/login" class="btn btn-success btn-rounded">Masuk</a></li>
-	                <li class="list-inline-item"><a href="/register" class="btn btn-success btn-rounded">Daftar</a></li>
-	                <li class="list-inline-item"><a href="/vendor/register" class="btn btn-success">Saya Pengajar</a></li>
-	                <li class="list-inline-item"><a href="/register" class="btn btn-primary">Saya Murid</a></li>
+	                <li class="list-inline-item"><a href="/vendor/register" class="btn btn-success btn-rounded">Saya Pengajar</a></li>
+	                <li class="list-inline-item"><a href="/register" class="btn btn-primary btn-rounded">Saya Murid</a></li>
 	            </ul>
 	        </div>
 	        @endif

@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth','VerifyVendor']], function (){
 
 	//CHANNEL
 	Route::post('/vendor/channel/add', 'TeacherController@add_channel');
+	Route::get('/vendor/channel/{namachannel}/{id}', 'TeacherController@show_channel');
+	Route::post('/vendor/channel/video/add', 'TeacherController@add_video');
 });
 
 Auth::routes();

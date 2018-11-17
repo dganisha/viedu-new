@@ -5,6 +5,11 @@ function urlSlug($string){
    return $slug;
 }
 
+function unSlug($string){
+   $slug=preg_replace('/[-]+/', ' ', $string);
+   return $slug;
+}
+
 function getRupiah($value) {
         $format = "Rp. " . number_format($value,0,',','.');
         return $format;
