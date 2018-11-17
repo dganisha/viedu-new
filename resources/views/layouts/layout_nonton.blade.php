@@ -29,6 +29,7 @@
     @if (Request::segment(2) === 'nonton')
     <link rel="stylesheet" href="{{ asset('/viedu/public/css/style.css') }}">
     @endif
+    @yield('style')
 
 </head>
 
