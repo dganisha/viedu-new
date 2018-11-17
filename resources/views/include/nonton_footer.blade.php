@@ -1,56 +1,30 @@
-<footer class="page-footer text-center text-md-left pt-4">
+<footer class="page-footer text-center">
 
         <!--Footer Links-->
         <div class="container-fluid">
             <div class="row">
 
                 <!--First column-->
-                <div class="col-md-3">
-                    <h5 class="text-uppercase font-weight-bold mb-4">Viedu</h5>
-                    <p>.</p>
+                <div class="col-md-12">
+                  
+                   <li class="list-inline-item">                 <a><img srcset="{{ asset('/dinamik.png') }}" class="img-responsive" style="height: 40px; width: 140px;"></a></li> 
+                    
+                     <li class="list-inline-item">                 <a><img srcset="{{ asset('/upi.png') }}" class="img-responsive" style="height: 60px; width: 60px;"></a></li> 
+                    <br>
+                    <li class="list-inline-item">                 <a ><img srcset="{{ asset('/icon.png') }}" class="img-responsive" style="height: 60px; width: 110px;"></a></li> 
+<br>
+         <button type="button" class="btn blue-gradient waves-effect">         
+                   About Us</button>
+                    
+                    
+           
                 </div>
                 <!--/.First column-->
 
-                <hr class="w-100 clearfix d-md-none">
+       
+         
 
-                <!--Second column-->
-                <div class="col-md-2 mx-auto">
-                    <h5 class="text-uppercase font-weight-bold mb-4"><a href="about/about">Tentang Viedu</a></h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <!--/.Second column-->
-
-                <hr class="w-100 clearfix d-md-none">
-
-                <!--Third column-->
-                <div class="col-md-2 mx-auto">
-                    <h5 class="text-uppercase font-weight-bold mb-4">Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <!--/.Third column-->
-
-                <hr class="w-100 clearfix d-md-none">
-
-                <!--Fourth column-->
-                <div class="col-md-2 mx-auto">
-                    <h5 class="text-uppercase font-weight-bold mb-4">Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#!">Link 1</a></li>
-                        <li><a href="#!">Link 2</a></li>
-                        <li><a href="#!">Link 3</a></li>
-                        <li><a href="#!">Link 4</a></li>
-                    </ul>
-                </div>
+   
                 <!--/.Fourth column-->
 
             </div>
@@ -61,11 +35,10 @@
         <!--Social buttons-->
         <div class="social-section text-center">
             <ul class="list-unstyled list-inline">
-                <li class="list-inline-item"><a class="btn-floating btn-fb"><i class="fa fa-facebook"> </i></a></li>
-                <li class="list-inline-item"><a class="btn-floating btn-tw"><i class="fa fa-twitter"> </i></a></li>
-                <li class="list-inline-item"><a class="btn-floating btn-gplus"><i class="fa fa-google-plus"> </i></a></li>
-                <li class="list-inline-item"><a class="btn-floating btn-li"><i class="fa fa-linkedin"> </i></a></li>
-                <li class="list-inline-item"><a class="btn-floating btn-git"><i class="fa fa-github"> </i></a></li>
+                <li class="list-inline-item"><a href="../facebook.com/smkn13bdg" class="btn-floating btn-fb"><i class="fa fa-facebook"> </i></a></li>
+        
+                <li class="list-inline-item"><a href="../instagram.com/smkn13bdg" class="btn-floating btn-gplus"><i class="fa fa-instagram"> </i></a></li>
+                 <li class="list-inline-item"><a href="../www.smkn-13bdg.sch.id" class="btn-floating btn-gplus"><i class="fa fa-globe"> </i></a></li>
             </ul>
         </div>
         <!--/.Social buttons-->

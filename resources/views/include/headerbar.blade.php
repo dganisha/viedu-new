@@ -9,7 +9,8 @@
             @endisset
             <!-- Breadcrumb-->
             <div class="breadcrumb-dn mr-auto">
-                <a href="/"><img srcset="{{ asset('/icon.jpeg') }}" class="img-responsive" style="height: 50px; width: 70px;"></a>
+                <a href="/"><img srcset="{{ asset('/icon.png') }}" class="img-responsive" style="height: 50px; width: 90px;"></a>
+                 
             </div>
             <form class="form-inline active-cyan-4" method="GET" action="/search">
               <input class="form-control form-control-sm mr-3 w-75" type="text" name="query" placeholder="Cari tutorial..." aria-label="Search">
