@@ -4,33 +4,71 @@
 	<main class="mt-5 pt-5">
         <div class="container">
 
-            <!--Section: Jumbotron-->
-            <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+<!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="view">
 
-                <!-- Content -->
-                <div class="card-body text-white text-center py-5 px-5 my-5">
-
-                    <h1 class="mb-4">
-                        <strong>Belajar Apapun Dengan Viedu!</strong>
-                    </h1>
-                   
-                    <p class="mb-4">
-                        <strong>Viedu merupakan website yang menyediakan sebuah wadah untuk anda dalam mendapatkan ilmu.</strong>
-                    </p>
-                    <a target="_blank" class="btn btn-outline-white btn-lg">Selamat Menimba Ilmu!!!
-                        <i class="fa fa-graduation-cap ml-2"></i>
-                    </a>
-
-                </div>
-                <!-- Content -->
-            </section>
+          <img class="d-block w-100"  srcset="{{ asset('/1.png') }}"   class="h-75 d-inline-block" alt="First slide">
+        <div class="mask rgba-black-slight"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Selamat Datang Di Viedu!</h3>
+        
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100 " class="h-75 d-inline-block" srcset="{{ asset('/2.png') }}"  class="img-fluid" alt="Second slide">
+        
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Cara belajar baru untuk menghadapi revolusi industri 4.0</h3>
+        <p>Melalui Video Pembelajaran</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" srcset="{{ asset('/3.png') }}" alt="Third slide">
+        <div class="mask rgba-black-slight"></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Dapatkan pengalaman mendapat ilmu dengan mudah</h3>
+   
+      </div>
+    </div>
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
             <!--Section: Jumbotron-->
 
             @if(!Auth::user())
             <div class="call-to-action text-center my-4">
 	            <ul class="list-unstyled list-inline">
-	                <li class="list-inline-item"><a href="/login" class="btn btn-primary">Masuk</a></li>
-	                <li class="list-inline-item"><a href="/register" class="btn btn-primary">Daftar</a></li>
+	                <li class="list-inline-item"><a href="/login" class="btn btn-success btn-rounded">Masuk</a></li>
+	                <li class="list-inline-item"><a href="/register" class="btn btn-success btn-rounded">Daftar</a></li>
 	            </ul>
 	        </div>
 	        @endif
@@ -122,9 +160,26 @@
 
             </section>
             <!--Section: Cards-->
+            <!--Section: Jumbotron-->
+            <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
 
+                <!-- Content -->
+                <div class="card-body text-white text-center py-5 px-5 my-5">
+
+                    <h1 class="mb-4">
+                        <strong>Belajar Apapun Dengan Viedu!</strong>
+                    </h1>
+                   
+                    <p class="mb-4">
+                        <strong>Viedu merupakan website yang menyediakan sebuah wadah untuk anda dalam mendapatkan ilmu.</strong>
+                    </p>
+                  
+
+                </div>
+                <!-- Content -->
+            </section>
             <nav class="d-flex justify-content-center wow fadeIn my-5">
-	        	<h4>Maybe you like this Tutorial Project</h4>
+	        	<h4>Mungkin anda menyukai channel ini.</h4>
 	        </nav>
             <hr>
             <!--Section: Cards-->

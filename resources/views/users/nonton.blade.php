@@ -63,7 +63,7 @@
         				</div>
 					</div>
 				</div>
-				<div class="col-sm-4 red">
+				<div class="col-sm-4 blue-gradient">
 					<div class="vid">
 						<video width="90%">
 							<source src="{{ asset('/viedu/public/video/4.mp4') }}" type="video/mp4">
