@@ -99,13 +99,7 @@
 								  <!-- Content -->
 								  <div class="card-body">
 								    <!-- Name -->
-								    <h4 class="card-title">{{ $channel->user->name }}</h4>
-								    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
-								    <!-- Twitter -->
-								    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
-								    <!-- Dribbble -->
-								    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
-								    <hr>
+								    <h4 class="card-title">@if($dataGuru->verifikasi == 'verified') <i class="fa fa-check-circle" style="color: green;" title="Account Verified"></i> @endif {{ $channel->user->name }}</h4>
 								    <!-- Quotation -->
 								    <p><i class="fa fa-quote-left"></i><i> {{ $dataGuru->bio }} </i><i class="fa fa-quote-right"></i></p>
 								  </div>

@@ -11,11 +11,6 @@
           <div class="portlet">
               <div class="portlet-heading">
                   <h3 class="portlet-title text-dark">List Guru Belum terverifikasi</h3>
-                  <div class="portlet-widgets">
-                      <a href="/administrator/portfolio/create">
-                        <i class="ion-plus"></i>
-                      </a>
-                  </div>
               </div>
               <div class="portlet-body">
                 {{-- {!! view('template.partials.alert') !!} --}}
