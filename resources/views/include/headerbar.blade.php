@@ -5,16 +5,19 @@
                     padding-left: 5px;
                     padding-right: 5px;
                 }
+                .btn-search:hover i{
+                    transform: scale(1.3);
+                }
             </style>
             <div class="img-header">
-                <a href="/"><img srcset="{{ asset('/icon.png') }}" class="img-responsive" style="height: 50px; width: 90px;"></a>
-                 
+                <a href="/"><img srcset="{{ asset('/icon.png') }}" class="img-responsive" style="height: 50px; width: 90px;"></a> 
             </div>
-            <form class="form-inline active-cyan-4" method="GET" action="/search">
-              <input class="form-control form-control-sm mr-3 w-75" type="text" name="query" placeholder="Cari tutorial..." aria-label="Search">
-              {{-- <i class="fa fa-search" aria-hidden="true"></i> --}}
-            </form>
+            
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                <form class="form-inline active-cyan-4" method="GET" action="/search">
+                  <input class="form-control form-control-sm mr-3 w-75" type="text" name="query" placeholder="Cari tutorial..." aria-label="Search">
+                  <button class="btn-search" type="submit" style="border:none;background:none;cursor:pointer;"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
                 @if(!Auth::user())
                 <li class="nav-item">
                     <a href="/login" class="nav-link" data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-sign-in"></i> <span class="clearfix d-none d-sm-inline-block">Login</span></a>
