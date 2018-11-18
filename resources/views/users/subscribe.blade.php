@@ -107,7 +107,7 @@
 								    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
 								    <hr>
 								    <!-- Quotation -->
-								    <p><i class="fa fa-quote-left"></i><i> {{ $channel->user->bio }} </i><i class="fa fa-quote-right"></i></p>
+								    <p><i class="fa fa-quote-left"></i><i> {{ $dataGuru->bio }} </i><i class="fa fa-quote-right"></i></p>
 								  </div>
 							</div>
 							<!-- Card -->

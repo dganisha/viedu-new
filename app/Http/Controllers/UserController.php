@@ -8,6 +8,7 @@ use App\User;
 use App\Project;
 use App\Order;
 use App\Favorite;
+use App\Teacherconfirmation;
 use Auth;
 
 class UserController extends Controller
@@ -28,6 +29,7 @@ class UserController extends Controller
 	{
 		$channel = Project::findOrFail($id);
 		$data_video = Video::where('project_id', $channel->id)->get();
+		$dataGuru = Teacherconfirmation::where('user_id', $channel->user->id)->first();
 
 		$langganan = Order::where('user_id', Auth::user()->id)->where('project_id', $channel->id)->first();
 		if($langganan){
@@ -35,7 +37,7 @@ class UserController extends Controller
 		}else{
 			$countLangganan = 0;
 		}
-		return view('users.subscribe', compact('channel','data_video','countLangganan'));
+		return view('users.subscribe', compact('channel','data_video','countLangganan','dataGuru'));
 	}
 
 	public function subscribe(Request $request)
@@ -73,9 +75,9 @@ class UserController extends Controller
 		// return $countLangganan;
 
 		//Cari Favorit
-		$favorit = Favorite::with('project')->select('project_id')->where('user_id',Auth::user()->id)->get();
-		$countFavorit = $favorit->count();		
-		return view('users.profile', compact('langganan','favorit','countLangganan','countFavorit'));
+		$data_favorit = Favorite::with('video')->select('video_id')->where('user_id',Auth::user()->id)->get();
+		$countFavorit = $data_favorit->count();		
+		return view('users.profile', compact('langganan','data_favorit','countLangganan','countFavorit'));
 	}
 
 	public function update_profile(Request $request)

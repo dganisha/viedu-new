@@ -3,14 +3,14 @@
   <link href="/css/assets/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('title')
-  User
+  Video
 @endsection
 @section('content')
   <div class="row">
       <div class="col-md-12">
           <div class="portlet">
               <div class="portlet-heading">
-                  <h3 class="portlet-title text-dark">List User</h3>
+                  <h3 class="portlet-title text-dark">List Video</h3>
                   <div class="portlet-widgets">
                       <a href="/administrator/portfolio/create">
                         <i class="ion-plus"></i>
@@ -47,31 +47,23 @@
                               <thead>
                                   <tr>
                                       <th>No</th>
-                                      <th>Name</th>
-                                      <th>Email</th>
-                                      <th>Phone Number</th>
-                                      <th>Role</th>
-                                      <th>Action</th>
+                                      <th>Pembuat</th>
+                                      <th>Judul</th>
+                                      <th>Deskripsi</th>
+                                      <th>Source Project</th>
+                                      <th>Source Poster</th>
                                   </tr>
                               </thead>
                               <tbody>
                                 @php $no = 1; @endphp
-                                @foreach($allUser as $user)
+                                @foreach($data_channel as $project)
                                 <tr>
                                   <td>{{ $no++ }}</td>
-                                  <td>{{ $user->name }}</td>
-                                  <td>{{ $user->email }}</td>
-                                  <td>{{ $user->phone_number }}</td>
-                                  <td>{{ $user->role }}</td>
-                                  <td class="text-center">
-                                    <div class="btn-group">
-                                        <form method="POST" action="/admin/deleteUser">
-                                          @csrf
-                                          <input type="hidden" name="userid" value="{{ $user->id }}">
-                                          <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </div>
-                                  </td>
+                                  <td>{{ $project->user->name }}</td>
+                                  <td>{{ $project->title }}</td>
+                                  <td>{{ $project->description }}</td>
+                                  <td>{{ url('/').$project->url_project }}</td>
+                                  <td>{{ url('/').$project->url_poster }}</td>
                                 </tr>
                                 @endforeach
                               </tbody>

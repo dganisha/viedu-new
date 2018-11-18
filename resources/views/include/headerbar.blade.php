@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
             @isset(Auth::user()->name)
-                @if(auth()->user()->role == 'teacher')
+                @if(auth()->user()->role == 'administrator')
                 <!-- SideNav slide-out button -->
                 <div class="float-left">
                     <a href="#" data-activates="slide-out" class="button-collapse black-text"><i class="fa fa-bars"></i></a>
@@ -22,6 +22,12 @@
                     <a href="/login" class="nav-link" data-toggle="modal" data-target="#modalLRForm"><i class="fa fa-sign-in"></i> <span class="clearfix d-none d-sm-inline-block">Login</span></a>
                 </li>
                 @else
+                @if(Auth::user()->role == 'administrator')
+                <li class="nav-item">
+                    <a href="/admin" class="nav-link"><i class="fa fa-gears"></i> <span class="clearfix d-none d-sm-inline-block">Administrator Page</span></a>
+
+                </li>
+                @endif
                 <li class="nav-item">
                     @if(Auth::user()->role == 'teacher')
                         @php $link = "/vendor/profile" @endphp

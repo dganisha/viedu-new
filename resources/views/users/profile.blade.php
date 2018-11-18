@@ -33,7 +33,7 @@
                                  <a class="nav-link active" id="langganan-tab-just" data-toggle="tab" href="#langganan-just" role="tab" aria-controls="langganan-just" aria-selected="true">Langganan</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link " id="home-tab-just" data-toggle="tab" href="#home-just" role="tab" aria-controls="home-just" aria-selected="true">Favorit</a>
+                                 <a class="nav-link " id="home-tab-just" data-toggle="tab" href="#favorite-just" role="tab" aria-controls="favorite-just" aria-selected="true">Favorit</a>
                               </li>
                               <li class="nav-item">
                                  <a class="nav-link" id="profile-tab-just" data-toggle="tab" href="#profile-just" role="tab" aria-controls="profile-just" aria-selected="false">Profil</a>
@@ -103,11 +103,49 @@
                                  </div>
                                  @endif
                               </div>
-                              <div class="tab-pane fade show " id="home-just" role="tabpanel" aria-labelledby="home-tab-just">
+                              <div class="tab-pane fade show " id="favorite-just" role="tabpanel" aria-labelledby="home-tab-just">
                               	@if($countFavorit == 0)
                                  <div class="alert alert-info" role="alert">
                                     Anda belum pernah menyimpan channel favorit anda. ayo cari ilmu kesukaan anda!!!. <a href="homemember.html" class="alert-link">Home</a>.Ayo Cari Ilmu Favorit anda!
                                  </div>
+                                @else
+                                <section class="text-center">
+                                  <!--Grid row-->
+                                    <div class="row mb-4 wow fadeIn">
+                                         @foreach($data_favorit as $favorite)
+                                         <!--Grid column-->
+                                         <div class="col-lg-4 col-md-6 mb-4">
+                                             <!--Card-->
+                                             <div class="card">
+
+                                                 <!--Card image-->
+                                                 <div class="view overlay">
+                                                   <div class="embed-responsive embed-responsive-16by9 rounded-top">
+                                                      <img class="embed-responsive-item" srcset="{{ asset($favorite->video->source_poster) }} 1x" alt="…" style="width: 350px; height: 200px;">
+                                                     </div> 
+                                                 </div>
+
+                                                 <!--Card content-->
+                                                 <div class="card-body">
+                                                     <!--Title-->
+                                                     <h4 class="card-title">{{ $favorite->video->title_video }}</h4>
+                                                     <!--Text-->
+                                                     <p class="card-text">{{ str_limit($favorite->video->description_video, 40) }}</p>
+                                                     <a href="/member/nonton/{{ urlSlug($favorite->video->title_video) }}-start{{ $favorite->video->id }}" target="_blank" class="btn btn-primary btn-md">Start tutorial
+                                                         <i class="fa fa-play ml-2"></i>
+                                                     </a>
+                                                 </div>
+
+                                             </div>
+                                             <!--/.Card-->
+
+                                         </div>
+                                         <!--Grid column-->
+                                         @endforeach
+
+                                    </div>
+                                  <!--Grid row-->
+                                 </section>
                                 @endif
                               </div>
                               <div class="tab-pane fade" id="profile-just" role="tabpanel" aria-labelledby="profile-tab-just">

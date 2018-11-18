@@ -42,9 +42,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab-just" data-toggle="tab" href="#profile-just" role="tab" aria-controls="profile-just" aria-selected="false">Profil</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="contact-tab-just" data-toggle="tab" href="#contact-just" role="tab" aria-controls="contact-just" aria-selected="false">Video</a>
-                                </li>
                             </ul>
                             <div class="tab-content card pt-5" id="myTabContentJust">
                                  @if(count($errors) > 0)
@@ -150,10 +147,6 @@
                                   </form>
                                 </div>
                                 <!-- E-mail -->
-
-                                <div class="tab-pane fade" id="contact-just" role="tabpanel" aria-labelledby="contact-tab-just">
-                                    <p>Video Dari Semua Channel</p>
-                                </div>
                             </div>
 
                         </div>

@@ -23,7 +23,7 @@
 
                             <!-- Avatar -->
                             <div class="avatar mx-auto white">
-                                <img srcset="{{ asset('/smkn13.jpg') }}"  width="30%">
+                                <img srcset="{{ asset('/smkn13.JPG') }}"  width="30%">
                             </div>
 
                             <!-- Content -->

@@ -55,14 +55,11 @@
 	                                        <button class="btn blue-gradient btn-block btn-rounded z-depth-1a">Log in <i class="fa fa-sign-in ml-1"></i></button>
 	                                    </div>
                                 	</form>
-                                    <div class="text-center mt-2">
-                                        <button class="btn btn-white btn-block btn-rounded z-depth-1a"><a href="loginguru.html" class="blue-text">Anda Pengajar? Klik Disini. </a><i class="fa fa-users blue-text"></i></button>
-                                    </div>
                                 </div>
                                 <!--Footer-->
                                 <div class="modal-footer">
                                     <div class="options text-center text-md-right mt-1">
-                                        <p>Lupa <a href="#" class="blue-text">Password?</a></p>
+                                        <p>Lupa <a href="/password/reset" class="blue-text">Password?</a></p>
                                     </div>
                                     <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                                 </div>

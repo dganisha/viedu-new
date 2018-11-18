@@ -27,13 +27,19 @@
 								@endif
 							</div>
 							<div class="judul">	
-								<h4>{{ $data_video->title_video }} <i class="fa fa-star"></i></h4>
+								<h4>{{ $data_video->title_video }} @if($countFav != 0)<i class="fa fa-star" style="color: orange;"></i>@endif</h4>
 							</div>
 
 							<div class="desk">
 								<h4>Description</h4>
 								<small><p>{{ $data_video->description_video }}</p></small>
-								<button type="button" class="btn btn-primary waves-effect" data-dismiss="modal" onclick="addFav()"><i class="fa fa-star"></i> Tambah ke Favorit</button>
+								@if($countFav == 0)
+								<form method="POST" action="/favorite">
+									@csrf
+									<input type="hidden" name="videoid" value="{{ $data_video->id }}">
+									<button type="submit" class="btn btn-primary waves-effect" data-dismiss="modal" onclick="addFav()"><i class="fa fa-star"></i> Tambah ke Favorit</button>
+								</form>
+								@endif
 							</div>
 							<!-- Card -->
 							<div class="card testimonial-card">

@@ -13,7 +13,6 @@
 
 Route::get('/', 'UserController@home');
 Route::get('/about', 'UserController@show_about');
-Route::get('/admin', 'AdminController@index');
 
 //REGISTER & LOGIN
 Route::get('/login', 'LoginRegisterController@login');
@@ -35,6 +34,9 @@ Route::group(['middleware' => ['auth']], function (){
 	//Langganan
 	Route::get('/member/subscribe/{name}/{id}', 'UserController@show_channel');
 	Route::post('/member/subscribe/addSubscribe', 'UserController@subscribe');
+
+	//Favorit
+	Route::post('/favorite', 'VideoController@favorite');
 });
 
 //VENDOR
@@ -50,6 +52,14 @@ Route::group(['middleware' => ['auth','VerifyVendor']], function (){
 	Route::post('/vendor/channel/add', 'TeacherController@add_channel');
 	Route::get('/vendor/channel/{namachannel}/{id}', 'TeacherController@show_channel');
 	Route::post('/vendor/channel/video/add', 'TeacherController@add_video');
+});
+
+//ADMINISTRATOR
+Route::group(['middleware' => ['auth','VerifyAdmin']], function (){
+	Route::get('/admin', 'AdminController@index');
+	Route::post('/admin/deleteUser', 'AdminController@deleteUser');
+	Route::get('/admin/video', 'AdminController@listVideo');
+	Route::get('/admin/channel', 'AdminController@listChannel');
 });
 
 Auth::routes();
