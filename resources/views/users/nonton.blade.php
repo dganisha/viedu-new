@@ -60,7 +60,7 @@
 								  <!-- Content -->
 								  <div class="card-body">
 								    <!-- Name -->
-								    <h4 class="card-title"> @if($guru->verifikasi == 'verified') <i class="fa fa-check-circle" style="color: green;"></i> @endif {{ $data_video->project->user->name }}</h4>
+								    <h4 class="card-title"> @if($guru->verifikasi == 'verified') <i class="fa fa-check-circle" style="color: green;" title="Account Verified"></i> @endif {{ $data_video->project->user->name }}</h4>
 								    <p><i class="fa fa-quote-left"></i><i> {{ $data_video->project->user->bio }} </i><i class="fa fa-quote-right"></i></p>
 								  </div>
 							</div>
