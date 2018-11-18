@@ -60,7 +60,7 @@ Dalam penyelenggaraan pendidikan, SMKN 13 bekerja sama dengan Dunia Usaha / Duni
                                 <!-- Section heading -->
                                 <h2 class="h1-responsive font-weight-bold my-5">Wdev team</h2>
                                  <div class="card-text"> 
-                                <p>"Puji syukur kami panjatkan kepada allah S.W.T, Website Viedu (Video Edukasi) telah di buat sebagai karya dari WDev Team dalam mengikuti Lomba Cipta Web Dinamik 13 yang di selenggarakan oleh Departemen Ilmu Komputer, Fakultas Pendidikan Matematika dan Ilmu Pengetahuan Alam, Universitas Pendidikan Indonesia. Website Viedu merupakan website yang bertujuan untuk memajukan masyarakat untuk menghadapi tantangan Revolusi Industri 4.0 dalam bidang pendidikan. dengan Website Viedu diharapkan masyarakat dapat mengakses ilmu yang bermanfaat dan berguna bagi masa yang akan datang dan masyarakat pun dapat berbagi ilmu yang bermanfaat untuk masyarakat lainnya."</p>
+                                <p>"Puji syukur kami panjatkan kepada allah S.W.T, Website Viedu (Video Edukasi) telah di buat sebagai karya dari WDev Team dalam mengikuti Lomba Cipta Web Dinamik 13 yang di selenggarakan oleh  Keluarga Besar Ilmu Komputer, Universitas Pendidikan Indonesia. Website Viedu merupakan website yang bertujuan untuk memajukan masyarakat untuk menghadapi tantangan Revolusi Industri 4.0 dalam bidang pendidikan. dengan Website Viedu diharapkan masyarakat dapat mengakses ilmu yang bermanfaat dan berguna bagi masa yang akan datang dan masyarakat pun dapat berbagi ilmu yang bermanfaat untuk masyarakat lainnya."</p>
 
                                    
       
