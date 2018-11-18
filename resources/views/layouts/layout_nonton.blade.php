@@ -36,11 +36,6 @@
 <body class="fixed-sn white-skin">
     <!--Double navigation-->
     <header>
-        @isset(Auth::user()->name)
-            @if(Auth::user()->role == 'teacher')
-            @include('include.sidebar')
-            @endif
-        @endisset
         <!-- Navbar -->
         @include('include.headerbar')
         <!-- /.Navbar -->

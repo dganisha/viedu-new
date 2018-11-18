@@ -60,6 +60,10 @@ Route::group(['middleware' => ['auth','VerifyAdmin']], function (){
 	Route::post('/admin/deleteUser', 'AdminController@deleteUser');
 	Route::get('/admin/video', 'AdminController@listVideo');
 	Route::get('/admin/channel', 'AdminController@listChannel');
+
+	//VERIFIKASI
+	Route::get('/admin/verifikasi', 'AdminController@show_verifikasi');
+	Route::post('/admin/verifikasi', 'AdminController@verifikasi');
 });
 
 Auth::routes();

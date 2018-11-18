@@ -13,7 +13,7 @@
 				   	<div class="container">
 				    	<div class="svideo">	
 						    <div class="embed-responsive embed-responsive-16by9">
-						    	@if($countSub == 0)
+						    	@if($countSub == 0 && $data_video->project->user->id != Auth::user()->id)
 						    	{{-- <img src="{{ asset('/icon.png') }}" class="image-responsive" style="width: 150px"> --}}
 						    	<video controls>
 								  	<source src="{{ asset('/video-default.3gpp') }}" type="video/mp4">
@@ -42,6 +42,11 @@
 								@endif
 							</div>
 							<!-- Card -->
+
+							<div class="module">
+								<h4>About this Video</h4>
+								This video from channel <b>{{ $data_video->project->title }}</b>, for more video or <b>Subscribe</b> <a href="/member/subscribe/{{ urlSlug($data_video->project->title) }}/{{ $data_video->project->id }}">click here</a>
+							</div>
 							<div class="card testimonial-card">
 
 								  <!-- Background color -->
@@ -67,10 +72,6 @@
 								  </div>
 							</div>
 							<!-- Card -->
-							<div class="module">
-								<h4>About this Video</h4>
-								This video from channel <b>{{ $data_video->project->title }}</b>, for more video <a href="/member/subscribe/{{ urlSlug($data_video->project->title) }}/{{ $data_video->project->id }}">click here</a>
-							</div>
 
         				</div>
 					</div>

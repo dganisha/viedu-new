@@ -35,6 +35,9 @@
 					<li @if(Request::segment(2)=='channel') class="active" @endif>
 						<a href="/admin/channel"><i class="ion-android-image"></i><span class="nav-label">Channel</span></a>
 					</li>
+					<li @if(Request::segment(2)=='verifikasi') class="active" @endif>
+						<a href="/admin/verifikasi"><i class="ion-person"></i><span class="nav-label">Verifikasi Guru</span></a>
+					</li>
 					<li>
 	                    <a href="{{ route('logout') }}" class="nav-link"
 	                        onclick="event.preventDefault();

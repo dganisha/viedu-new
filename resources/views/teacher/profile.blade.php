@@ -25,11 +25,13 @@
                                 <h4 class="card-title">{{ auth()->user()->name }}</h4>
                                 <hr>
                                 <!-- Quotation -->
-                                <p> <small>{{ $dataGuru->verifikasi }}</small></p>
-
-                                <a href="verifikasi.html">
-                                    <button type="button" class="btn btn-outline-warning btn-rounded waves-effect">Verifikasi Akun</button>
-                                </a>
+                                <p>
+                                  @if($dataGuru->verifikasi == 'non-verified')
+                                  <button type="button" class="btn btn-outline-warning btn-rounded waves-effect">{{ $dataGuru->verifikasi }}</button>
+                                  @else
+                                  <button type="button" class="btn btn-outline-success btn-rounded waves-effect">{{ $dataGuru->verifikasi }}</button>
+                                  @endif
+                                </p>
                                 <p></p>
                                 <p><i class="fa fa-quote-left"></i> {{ $dataGuru->bio }} <i class="fa fa-quote-right"></i> </p>
                                 <hr>

@@ -8,6 +8,7 @@ use App\Video;
 use App\Project;
 use App\Order;
 use App\Favorite;
+use App\Teacherconfirmation;
 use Validator;
 
 class AdminController extends Controller
@@ -44,4 +45,29 @@ class AdminController extends Controller
     	return view('admin.channel', compact('data_channel'));
     }
 
+    public function show_verifikasi()
+    {
+        $data_guru = Teacherconfirmation::where('verifikasi', 'non-verified')->get();
+        return view('admin.verifikasi', compact('data_guru'));
+    }
+
+    public function verifikasi(Request $request)
+    {
+        $this->validate($request, [
+            'userid' => 'required|numeric',
+        ]);
+
+        $user = User::find($request->userid);
+        if($user){
+            $confirm = Teacherconfirmation::where('user_id', $user->id)->update([
+                'verifikasi' => 'verified'
+            ]);
+
+            if($confirm){
+                return redirect('/admin/verifikasi')->with('success','Sukses memverifikasi guru');
+            }else{
+                return redirect('/admin/verifikasi')->with('failed','Failed memverifikasi guru');
+            }
+        }
+    }
 }
