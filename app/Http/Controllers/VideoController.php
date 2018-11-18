@@ -7,6 +7,7 @@ use App\Order;
 use App\Video;
 use App\User;
 use App\Favorite;
+use App\Teacherconfirmation;
 use Validator;
 use Auth;
 
@@ -24,8 +25,9 @@ class VideoController extends Controller
         $randomVideo = Video::where('project_id', $data_video->project_id)->where('id','!=',$data_video->id)->limit(4)->get();
         $countSub = Order::where('user_id', Auth::user()->id)->where('project_id',$data_video->project_id)->count();
         $countFav = Favorite::where('user_id', Auth::user()->id)->where('video_id', $data_video->id)->count();
+        $guru = Teacherconfirmation::where('user_id', $data_video->project->user->id)->first();
         // return $countSub;
-    	return view('users.nonton', compact('data_video', 'countSub', 'randomVideo','countFav'));
+    	return view('users.nonton', compact('data_video', 'countSub', 'randomVideo','countFav','guru'));
     }
 
     public function favorite(Request $request)

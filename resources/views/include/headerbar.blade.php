@@ -1,6 +1,12 @@
 <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
             <!-- Breadcrumb-->
-            <div class="breadcrumb-dn mr-auto">
+            <style type="text/css">
+                .img-header {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            </style>
+            <div class="img-header">
                 <a href="/"><img srcset="{{ asset('/icon.png') }}" class="img-responsive" style="height: 50px; width: 90px;"></a>
                  
             </div>

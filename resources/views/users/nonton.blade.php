@@ -60,14 +60,7 @@
 								  <!-- Content -->
 								  <div class="card-body">
 								    <!-- Name -->
-								    <h4 class="card-title">{{ $data_video->project->user->name }}</h4>
-								    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
-								    <!-- Twitter -->
-								    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
-								    <!-- Dribbble -->
-								    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
-								    <hr>
-								    <!-- Quotation -->
+								    <h4 class="card-title"> @if($guru->verifikasi == 'verified') <i class="fa fa-check-circle" style="color: green;"></i> @endif {{ $data_video->project->user->name }}</h4>
 								    <p><i class="fa fa-quote-left"></i><i> {{ $data_video->project->user->bio }} </i><i class="fa fa-quote-right"></i></p>
 								  </div>
 							</div>
@@ -77,14 +70,17 @@
 					</div>
 				</div>
 				<div class="col-sm-4 blue-gradient">
-					@foreach($randomVideo as $vid)
-					<div class="vid">
-						<div class="embed-responsive embed-responsive-16by9 rounded-top">
-                        	<img class="embed-responsive-item" srcset="{{ asset($vid->source_poster) }} 1x" alt="…">
-                       	</div>
-						<a href="/member/nonton/{{ urlSlug($vid->title_video) }}-start{{ $vid->id }}"><h5 class="text-center">{{ $vid->title_video }}</h5></a>
+					<div class="container">
+						@foreach($randomVideo as $vid)
+						<div class="vid">
+							<div class="embed-responsive embed-responsive-16by9 rounded-top">
+	                        	<img class="embed-responsive-item" srcset="{{ asset($vid->source_poster) }} 1x" alt="…">
+	                       	</div>
+							<a href="/member/nonton/{{ urlSlug($vid->title_video) }}-start{{ $vid->id }}"><h5 class="text-center">{{ $vid->title_video }}</h5></a>
+						</div>
+						<hr>
+						@endforeach
 					</div>
-					@endforeach
 				</div>
 			</div>
 				
