@@ -1,10 +1,13 @@
 @extends('layouts.layout_nonton')
-
+@section('style')
+  <style>
+    .call-to-action ul li a{
+      width: 15em!important;
+    }
+  </style>
+@endsection
 @section('content')
-	<main class="mt-5 pt-5">
-    <div id="home-section">
-      <div class="container">
-        <!--Carousel Wrapper-->
+<!--Carousel Wrapper-->
         <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
           <!--Indicators-->
           <ol class="carousel-indicators">
@@ -61,18 +64,20 @@
           </a>
           <!--/.Controls-->
         </div>
+        @if(!Auth::user())
+            <div class="call-to-action text-center my-4">
+              <ul class="list-unstyled list-inline">
+                  <li class="list-inline-item"><a href="/vendor/register" class="btn btn-success btn-rounded">Saya Pengajar</a></li>
+                  <li class="list-inline-item"><a href="/register" class="btn btn-primary btn-rounded">Saya Murid</a></li>
+              </ul>
+          </div>
+          @endif
         <!--/.Carousel Wrapper-->
             <!--Section: Jumbotron-->
-
-            @if(!Auth::user())
-            <div class="call-to-action text-center my-4">
-	            <ul class="list-unstyled list-inline">
-	                <li class="list-inline-item"><a href="/vendor/register" class="btn btn-success btn-rounded">Saya Pengajar</a></li>
-	                <li class="list-inline-item"><a href="/register" class="btn btn-primary btn-rounded">Saya Murid</a></li>
-	            </ul>
-	        </div>
-	        @endif
-
+	<main class="mt-5 pt-5">
+    <div id="home-section">
+      <div class="container">
+        <div class="container">
 	        <nav class="d-flex justify-content-center wow fadeIn my-5">
 	        	<h4>Maybe you like this video</h4>
 	        </nav>
@@ -92,7 +97,7 @@
                             <!--Card image-->
                             <div class="view overlay">
                              	<div class="embed-responsive embed-responsive-16by9 rounded-top">
-                             		<img class="embed-responsive-item" srcset="{{ asset($video->source_poster) }} 1x" alt="…" style="width: 350px; height: 200px;">
+                             		<img class="embed-responsive-item" srcset="{{ asset($video->source_poster) }} 1x" alt="…" style="width: 350px; height: 200px;object-fit: cover;object-position:center;">
                                 </div>	
                             </div>
 
@@ -156,7 +161,7 @@
                               <!--Card image-->
                               <div class="view overlay">
                                	<div class="embed-responsive embed-responsive-16by9 rounded-top">
-                               		<img class="embed-responsive-item" srcset="{{ asset($project->url_poster) }} 1x" alt="…" style="width: 350px; height: 200px;">
+                               		<img class="embed-responsive-item" srcset="{{ asset($project->url_poster) }} 1x" alt="…" style="width: 350px; height: 200px;object-fit: cover;object-position:center;">
                                 </div>	
                               </div>
 
@@ -182,6 +187,7 @@
                   <!--Grid row-->
               </section>
               <!--Section: Cards-->
+            </div>
           </div>
         </div>
     </main>
