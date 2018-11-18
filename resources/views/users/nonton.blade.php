@@ -16,7 +16,7 @@
 						    	@if($countSub == 0)
 						    	{{-- <img src="{{ asset('/icon.png') }}" class="image-responsive" style="width: 150px"> --}}
 						    	<video controls>
-								  	<source src="{{ asset('/icon.png') }}" type="video/mp4">
+								  	<source src="{{ asset('/video-default.3gpp') }}" type="video/mp4">
 								  	Your browser does not support HTML5 video.
 								</video>
 						    	@else
