@@ -93,7 +93,6 @@
                             <div class="view overlay">
                              	<div class="embed-responsive embed-responsive-16by9 rounded-top">
                              		<img class="embed-responsive-item" srcset="{{ asset($video->source_poster) }} 1x" alt="…" style="width: 350px; height: 200px;">
-                             		<img class="embed-responsive-item" srcset="{{ asset($video->source_poster) }} 1x" alt="…" style="width: 20px; height: 20px;">
                                 </div>	
                             </div>
 
@@ -102,7 +101,7 @@
                                 <!--Title-->
                                 <h4 class="card-title">{{ $video->title_video }}</h4>
                                 <!--Text-->
-                                <p class="card-text">{{ $video->description_video }}</p>
+                                <p class="card-text">{{ str_limit($video->description_video, 40) }}</p>
                                 <a href="/member/nonton/{{ urlSlug($video->title_video) }}-start{{ $video->id }}" target="_blank" class="btn btn-primary btn-md">Start tutorial
                                     <i class="fa fa-play ml-2"></i>
                                 </a>
@@ -118,7 +117,7 @@
                 </div>
                 <!--Grid row-->
 
-              </section>
+            </section>
               <!--Section: Cards-->
               <!--Section: Jumbotron-->
               <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
@@ -158,7 +157,7 @@
                               <div class="view overlay">
                                	<div class="embed-responsive embed-responsive-16by9 rounded-top">
                                		<img class="embed-responsive-item" srcset="{{ asset($project->url_poster) }} 1x" alt="…" style="width: 350px; height: 200px;">
-                                  </div>	
+                                </div>	
                               </div>
 
                               <!--Card content-->
@@ -166,7 +165,7 @@
                                   <!--Title-->
                                   <h4 class="card-title">{{ $project->title }}</h4> 
                                   <!--Text-->
-                                  <p class="card-text">{{ $project->description }}</p>
+                                  <p class="card-text">{{ str_limit($project->description, 40) }}</p>
                                   <a href="/member/subscribe/{{ urlSlug($project->title) }}/{{ $project->id }}" target="_blank" class="btn btn-primary btn-md">Langganan Tutorial
                                       <i class="fa fa-shopping-cart ml-2"></i>
                                   </a>

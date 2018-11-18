@@ -28,7 +28,15 @@
                                             <button type="button" class="btn purple-gradient btn-rounded"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Video</button>
                                         </a>
                                     </p>
-
+                                    @if(count($errors) > 0)
+                                      <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h4><i class="icon fa fa-close"></i> Failed!</h4>
+                                        @foreach($errors->all() as $error)
+                                          <p><i>{{ $error }}</i></p>
+                                        @endforeach
+                                      </div>
+                                   @endif
                                     <section class="text-center">
                                       <!--Grid row-->
                                       <div class="row mb-4 wow fadeIn">

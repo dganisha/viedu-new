@@ -70,7 +70,6 @@ class RegisterGuruController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'balance' => 0,
-            'role' => 'member',
             'phone_number' => $data['phone_number'],
             'password' => Hash::make($data['password']),
             'url_foto' => "/viedu/public/img/user/teacher.png",

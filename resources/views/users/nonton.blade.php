@@ -13,12 +13,18 @@
 				   	<div class="container">
 				    	<div class="svideo">	
 						    <div class="embed-responsive embed-responsive-16by9">
+						    	@if($countSub == 0)
+						    	{{-- <img src="{{ asset('/icon.png') }}" class="image-responsive" style="width: 150px"> --}}
 						    	<video controls>
-								  <source src="{{ asset($data_video->source_video) }}" type="video/mp4">
-								  <!-- <source src="public/video/1.mp4" type="video/ogg"> -->
-								  Your browser does not support HTML5 video.
+								  	<source src="{{ asset('/icon.png') }}" type="video/mp4">
+								  	Your browser does not support HTML5 video.
 								</video>
-								<!-- <iframe class="embed-responsive-item"  src="public/video/1.mp4"></iframe> -->
+						    	@else
+						    	<video controls>
+								  	<source src="{{ asset($data_video->source_video) }}" type="video/mp4">
+								  	Your browser does not support HTML5 video.
+								</video>
+								@endif
 							</div>
 							<div class="judul">	
 								<h4>{{ $data_video->title_video }} <i class="fa fa-star"></i></h4>
@@ -64,38 +70,14 @@
 					</div>
 				</div>
 				<div class="col-sm-4 blue-gradient">
+					@foreach($randomVideo as $vid)
 					<div class="vid">
-						<video width="90%">
-							<source src="{{ asset('/viedu/public/video/4.mp4') }}" type="video/mp4">
-							    <source src="mov_bbb.ogg" type="video/ogg">
-							    Your browser does not support HTML5 video.
-						</video>
-						<h5>voluptatum adipisci expedita doloribus, fugiat nesciunt.</h5>
+						<div class="embed-responsive embed-responsive-16by9 rounded-top">
+                        	<img class="embed-responsive-item" srcset="{{ asset($vid->source_poster) }} 1x" alt="…">
+                       	</div>
+						<a href="/member/nonton/{{ urlSlug($vid->title_video) }}-start{{ $vid->id }}"><h5 class="text-center">{{ $vid->title_video }}</h5></a>
 					</div>
-					<div class="vid"> 
-						<video width="90%">
-							<source src="{{ asset('/viedu/public/video/4.mp4') }}" type="video/mp4">
-							    <source src="mov_bbb.ogg" type="video/ogg">
-							    Your browser does not support HTML5 video.
-						</video>
-						<h5>Similique fugit exercitationem accusantium atque illo, molestiae cum asperiores.</h5>
-					</div>
-					<div class="vid"> 
-						<video width="90%">
-							<source src="{{ asset('/viedu/public/video/3.mp4') }}" type="video/mp4">
-							    <source src="mov_bbb.ogg" type="video/ogg">
-							    Your browser does not support HTML5 video.
-						</video>
-						<h5>Similique fugit exercitationem accusantium atque illo, molestiae cum asperiores.</h5>
-					</div> 
-					<div class="vid"> 
-						<video width="90%">
-							<source src="{{ asset('/viedu/public/video/1.mp4') }}" type="video/mp4">
-							    <source src="mov_bbb.ogg" type="video/ogg">
-							    Your browser does not support HTML5 video.
-						</video>
-						<h5>Lorem ipsum dolor sit amet, consectetur</h5>
-					</div>
+					@endforeach
 				</div>
 			</div>
 				

@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'role' => 'member',
             'phone_number' => $data['phone_number'],
             'password' => Hash::make($data['password']),
+            'url_foto' => "/viedu/public/img/user/user.png",
         ]);
     }
 }

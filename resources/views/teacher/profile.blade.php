@@ -94,7 +94,8 @@
                                                         <!--Title-->
                                                         <h4 class="card-title">{{ $project->title }}</h4> 
                                                         <!--Text-->
-                                                        <p class="card-text">{{ $project->description }}</p>
+                                                        <p class="card-text">{{ str_limit($project->description, 40) }}
+</p>
                                                         <a href="/vendor/channel/{{ urlSlug($project->title) }}/{{ $project->id }}" target="_blank" class="btn btn-primary btn-md">Buka Channel</a>
                                                     </div>
 
@@ -108,13 +109,11 @@
                                     @endif   
                                 </div>
                                 <div class="tab-pane fade" id="profile-just" role="tabpanel" aria-labelledby="profile-tab-just">
-                                    <p>
-
-                                        <p><a href="channel.html" class="btn-floating btn-lg peach-gradient"><i class="fa fa-pencil"></i></a></p>
-
+                                  <form method="POST" action="/vendor/profile/update">
+                                    @csrf
+                                        <p><button class="btn-floating btn-lg peach-gradient"><i class="fa fa-pencil"></i></button></p>
                                         <div class="form-group">
                                             <div class="md-form">
-
                                                 <div class="form-row">
                                                     <div class="col">
                                                         <div class="file-field">
@@ -136,19 +135,19 @@
                                                 <!-- Phone number -->
                                                 <div class="file-field">
                                                     <div class="file-path-wrapper">
-                                                        <input type="text" id="defaultRegisterPhonePassword" class="file-path validate" placeholder="Nomor Telepon" name="no_hp" aria-describedby="defaultRegisterFormPhoneHelpBlock" value="{{ Auth::user()->phone_number }}">
+                                                        <input type="text" id="defaultRegisterPhonePassword" class="file-path validate" placeholder="Nomor Telepon" name="no_hp" aria-describedby="defaultRegisterFormPhoneHelpBlock" value="{{ Auth::user()->phone_number }}" required="">
                                                     </div>
                                                 </div>
                                                 <br>
 
                                                 <div class="file-field">
                                                     <div class="file-path-wrapper">
-                                                        <input type="text" class="file-path validate" placeholder="Bio" name="bio" value="{{ $dataGuru->bio }}">
+                                                        <input type="text" class="file-path validate" placeholder="Bio" name="bio" value="{{ $dataGuru->bio }}" required="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
+                                  </form>
                                 </div>
                                 <!-- E-mail -->
 

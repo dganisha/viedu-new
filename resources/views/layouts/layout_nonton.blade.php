@@ -26,7 +26,7 @@
     </style>
     <!-- Material Design Bootstrap -->
     <link href="{{ asset('/viedu/public/css/mdb.min.css') }}" rel="stylesheet">
-    @if (Request::segment(2) === 'nonton')
+    @if (Request::segment(2) === 'nonton' || Request::segment(2) === 'subscribe')
     <link rel="stylesheet" href="{{ asset('/viedu/public/css/style.css') }}">
     @endif
     @yield('style')

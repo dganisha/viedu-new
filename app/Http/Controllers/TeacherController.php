@@ -7,6 +7,7 @@ use Auth;
 use App\Teacherconfirmation;
 use App\Project;
 use App\Video;
+use App\User;
 use Validator;
 use File;
 
@@ -24,6 +25,26 @@ class TeacherController extends Controller
 		$countChannel = $dataChannel->count();
 		return view('teacher.profile', compact('dataGuru', 'dataChannel','countChannel'));
 	}
+
+    public function update_profile(Request $request)
+    {
+        $this->validate($request, [
+            'bio' => 'required',
+            'no_hp' => 'required'
+        ]);
+
+        $update = User::where('id', Auth::user()->id)->update([
+            'phone_number' => $request->no_hp
+        ]);
+        $update = Teacherconfirmation::where('user_id', Auth::user()->id)->update([
+            'bio' => $request->bio
+        ]);
+        if($update){
+            return redirect('/vendor/profile')->with('success', 'Success changes profile');
+        }else{
+            return redirect('/vendor/profile')->with('failed', 'Failed changes profile');
+        }
+    }
 
     public function index()
     {
@@ -89,18 +110,18 @@ class TeacherController extends Controller
             'tittle_video' => 'required',
             'keterangan_video' => 'required',
             'poster_file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'video_file' => 'required|mimes:mp4,avi,mpeg,webm,wmv,3gp,avi,mov,rm,mpg,ogg,qt',
+            'video_file' => 'required|mimes:mp4,avi,mpeg,webm,wmv,3gp,avi,mov,rm,mpg,ogg,qt|max:750000',
             'channelid' => 'required|numeric'
         ]);
-
+        
     	$cariChannel = Project::findOrFail($request->channelid);
-
+    	//dia gak masuk kedalam kondisi ini makanya blank
     	if($request->hasFile('poster_file') && $request->hasFile('video_file')){
-            $image = $request->file('poster_file');
+            $image = $request->File('poster_file');
             $name = time().'.'.$image->getClientOriginalExtension();
             $destinationPathPoster = public_path($cariChannel->url_project);
 
-            $video = $request->file('video_file');
+            $video = $request->File('video_file');
             $nameVid = time().'.'.$video->getClientOriginalExtension();
             $destinationPathVideo = public_path($cariChannel->url_project);
 
@@ -113,7 +134,6 @@ class TeacherController extends Controller
             	'source_video' => $cariChannel->url_project."/".$nameVid,
             	'source_poster' => $cariChannel->url_project."/".$name,
             ]);
-
             $insertPoster = $image->move($destinationPathPoster, $name);
             $insertVideo = $video->move($destinationPathVideo, $nameVid);
            	if($insert && $insertPoster && $insertVideo){
