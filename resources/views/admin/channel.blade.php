@@ -3,19 +3,14 @@
   <link href="/css/assets/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('title')
-  Video
+  Channel
 @endsection
 @section('content')
   <div class="row">
       <div class="col-md-12">
           <div class="portlet">
               <div class="portlet-heading">
-                  <h3 class="portlet-title text-dark">List Video</h3>
-                  <div class="portlet-widgets">
-                      <a href="/administrator/portfolio/create">
-                        <i class="ion-plus"></i>
-                      </a>
-                  </div>
+                  <h3 class="portlet-title text-dark">List Channel</h3>
               </div>
               <div class="portlet-body">
                 {{-- {!! view('template.partials.alert') !!} --}}
