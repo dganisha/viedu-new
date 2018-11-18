@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 17 Nov 2018 pada 17.00
+-- Generation Time: 18 Nov 2018 pada 16.38
 -- Versi Server: 5.7.24-0ubuntu0.16.04.1
 -- PHP Version: 7.1.24-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -23,10 +23,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `favorites` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `project_id` int(10) UNSIGNED NOT NULL,
+  `video_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `favorites`
+--
+
+INSERT INTO `favorites` (`id`, `user_id`, `video_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 5, '2018-11-18 00:54:41', '2018-11-18 00:54:41'),
+(2, 1, 2, '2018-11-18 01:39:36', '2018-11-18 01:39:36');
 
 -- --------------------------------------------------------
 
@@ -70,6 +78,15 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `project_id`, `price`, `status_pembayaran`, `created_at`, `updated_at`) VALUES
+(1, 1, 17, 0, 'selesai', '2018-11-17 11:01:13', '2018-11-17 11:01:13'),
+(2, 1, 1, 800000, 'selesai', '2018-11-17 20:29:06', '2018-11-17 20:29:06'),
+(4, 8, 1, 800000, 'selesai', '2018-11-18 02:36:43', '2018-11-18 02:36:43');
+
 -- --------------------------------------------------------
 
 --
@@ -81,6 +98,14 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('guru1@gmail.com', '$2y$10$SKMIaVnzgTgRtOA2K4der.g/Vqg.igXcn.foZ5xRaExvSgM4C7q76', '2018-11-17 22:24:00'),
+('dhimasganisha@gmail.com', '$2y$10$N.VhbVRdH7sgybDRFG.UNuCO73mnhBunJZPLPodgwcc9pzv0TDQa6', '2018-11-17 22:25:16');
 
 -- --------------------------------------------------------
 
@@ -109,7 +134,6 @@ CREATE TABLE `projects` (
 INSERT INTO `projects` (`id`, `title`, `description`, `url_project`, `url_poster`, `user_id`, `price`, `tag`, `type`, `created_at`, `updated_at`) VALUES
 (1, 'Laravel + Vue.Js', 'Memberikan full tutorial dari Laravel + Vue.Js dengan hasil akhir adalah aplikasi toko online', '', '/viedu/public/img/poster/poster5.jpg', 1, 800000, 'laravel,vuejs,toko online', 'Website', '2018-11-10 14:39:00', '2018-11-10 14:39:00'),
 (2, 'Matematika', 'Matematika dasar kelas 12', '', '/viedu/public/img/poster/poster5.jpg', 1, 0, 'matematika', 'Pelajaran', '2018-11-10 14:39:00', '2018-11-10 14:39:00'),
-(5, 'Android Studio', 'android studio fundamental', '/viedu/public/img/poster/Android-Studio@4@1542425536', '/viedu/public/img/poster/Android-Studio@4@1542425536/1542425536.jpg', 4, NULL, NULL, NULL, '2018-11-16 20:32:16', '2018-11-16 20:32:16'),
 (17, 'Tes', 'Tesss', '/viedu/public/video//Tes@1@1542443570', '/viedu/public/img/poster//Tes@1@1542443570/1542443570.jpg', 1, NULL, NULL, NULL, '2018-11-17 01:32:50', '2018-11-17 01:32:50');
 
 -- --------------------------------------------------------
@@ -133,9 +157,7 @@ CREATE TABLE `teacherconfirmations` (
 --
 
 INSERT INTO `teacherconfirmations` (`id`, `user_id`, `bio`, `ktp`, `verifikasi`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, NULL, 'non-verified', '2018-11-16 12:00:00', '2018-11-16 12:00:00'),
-(3, 4, NULL, '8871791379319', 'non-verified', '2018-11-16 20:08:17', '2018-11-16 20:08:17'),
-(4, 5, NULL, '31781238712379', 'non-verified', '2018-11-17 00:37:03', '2018-11-17 00:37:03');
+(1, 1, 'Guru di SMKN 13 Bandung', NULL, 'non-verified', '2018-11-16 12:00:00', '2018-11-17 21:34:19');
 
 -- --------------------------------------------------------
 
@@ -164,10 +186,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone_number`, `password`, `role`, `balance`, `bio`, `url_foto`, `remember_token`, `email_verified_at`, `created_at`, `updated_at`) VALUES
-(1, 'Dhiemas Ganisha', 'dhimasganisha@gmail.com', '087898292270', '$2y$10$H1KKocR/N.YX5gOU2NZpk.IQcGDy1Q9TcpQxI/Ne.RPS4ZFtU8ZVO', 'teacher', 10000, 'Dhiemas Ganteng', '/viedu/public/img/user/user.png', 'qGUGQOhd8jq53EDso4Q799fGoaSjLjIhJBdhupX77ffBHO5fPXIyNBYzAQkK', NULL, '2018-10-14 07:14:53', '2018-10-14 07:14:53'),
+(1, 'Dhiemas Ganisha', 'dhimasganisha@gmail.com', '087898292270', '$2y$10$H1KKocR/N.YX5gOU2NZpk.IQcGDy1Q9TcpQxI/Ne.RPS4ZFtU8ZVO', 'administrator', 10000, 'Mencari ilmu hingga ke negri China', '/viedu/public/img/user/user.png', 'gCbQWx4jBKdlZmscS0XAsC75oEI0tWx4MH4G4zjiTGSHo9pOhsNRkS6pTABX', NULL, '2018-10-14 07:14:53', '2018-11-17 21:40:22'),
 (2, 'Angga Kahaerul', 'anggkahaerul20@gmail.com', '082822112', '$2y$10$0YeLaELgyh850q9RKpNshO4i.Uyh7E65clFl8aOjqpdmFZAZelXau', 'member', 0, NULL, '/viedu/public/img/user/user.png', 'vOPAcQYjGkxpNEel6otsUsqUIKqcFu7cYoNlyrlgniB6ogjeHF6zTQkHhlp4', NULL, '2018-11-13 06:07:57', '2018-11-13 06:07:57'),
-(4, 'Guru 1', 'guru1@gmail.com', '086373178', '$2y$10$VZkDFTMjgC8m7ic1ImYZG.BjHIpbaDY/IxPSuC.kwJcQdvlXdn60y', 'teacher', 0, NULL, '/viedu/public/img/user/teacher.png', '055RBkc9OD9v5GdMuXaiFbR8HO18FUhADk30gtyXU8TGC4dUKIWKFQ9c6W1V', NULL, '2018-11-16 20:08:17', '2018-11-16 20:08:17'),
-(5, 'Guru 2', 'guru2@gmail.com', '08178132', '$2y$10$9FoRoF8HHI5G0.RmW01.TO6jPApAX1oSYCouLU8bbZLU9gUqLpoTa', 'teacher', 0, NULL, '/viedu/public/img/user/teacher.png', 'ywcfROvp6abEYGXHH5x1rfUSsBXVCQYg39osjqsKuV8AHF5v0PJV3zbmpPOH', NULL, '2018-11-17 00:37:03', '2018-11-17 00:37:03');
+(8, 'Murid Tes', 'murid1@gmail.com', '1891389', '$2y$10$FOshJxXR7KKharbBrPCdHeiE2GQsokbLRdfGBhHKXiKoXPBs4/crq', 'member', 0, NULL, '/viedu/public/img/user/user.png', NULL, NULL, '2018-11-18 02:35:37', '2018-11-18 02:35:37');
 
 -- --------------------------------------------------------
 
@@ -195,7 +216,8 @@ INSERT INTO `videos` (`id`, `project_id`, `title_video`, `description_video`, `s
 (3, 1, 'Laravel + Vue.Js | Part 2', 'Membuat sistem di Laravel ', '/viedu/public/video/4.mp4', '/viedu/public/img/poster/poster6.jpg', '2018-11-10 16:59:00', '2018-11-10 16:59:00'),
 (4, 1, 'Laravel + Vue.Js | Part 3', 'Membuat sistem di Laravel ', '/viedu/public/video/4.mp4', '/viedu/public/img/poster/poster6.jpg', '2018-11-10 16:59:00', '2018-11-10 16:59:00'),
 (5, 1, 'Laravel + Vue.Js | Part 4', 'Membuat tampilan menggunakan Vue.Js', '/viedu/public/video/4.mp4', '/viedu/public/img/poster/poster6.jpg', '2018-11-11 16:59:00', '2018-11-11 16:59:00'),
-(6, 17, 'Video Tes part 1', 'ini tes video', '/viedu/public/video//Tes@1@1542443570/1542448513.webm', '/viedu/public/video//Tes@1@1542443570/1542448513.jpeg', '2018-11-17 02:55:13', '2018-11-17 02:55:13');
+(6, 17, 'Video Tes part 1', 'ini tes video', '/viedu/public/video//Tes@1@1542443570/1542448513.webm', '/viedu/public/video//Tes@1@1542443570/1542448513.jpeg', '2018-11-17 02:55:13', '2018-11-17 02:55:13'),
+(16, 17, 'Video Tes part 555', 'ini tes video lagii', '/viedu/public/video//Tes@1@1542443570/1542472420.mp4', '/viedu/public/video//Tes@1@1542443570/1542443570.jpg', '2018-11-17 09:33:40', '2018-11-17 09:33:40');
 
 --
 -- Indexes for dumped tables
@@ -206,8 +228,8 @@ INSERT INTO `videos` (`id`, `project_id`, `title_video`, `description_video`, `s
 --
 ALTER TABLE `favorites`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `favorites_user_id_foreign` (`user_id`),
-  ADD KEY `favorites_project_id_foreign` (`project_id`);
+  ADD KEY `favorites_project_id_foreign` (`video_id`),
+  ADD KEY `favorites_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `migrations`
@@ -220,8 +242,8 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `orders_user_id_foreign` (`user_id`),
-  ADD KEY `orders_project_id_foreign` (`project_id`);
+  ADD KEY `orders_project_id_foreign` (`project_id`),
+  ADD KEY `orders_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `password_resets`
@@ -265,7 +287,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -275,12 +297,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `teacherconfirmations`
 --
@@ -290,12 +312,12 @@ ALTER TABLE `teacherconfirmations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -304,30 +326,30 @@ ALTER TABLE `videos`
 -- Ketidakleluasaan untuk tabel `favorites`
 --
 ALTER TABLE `favorites`
-  ADD CONSTRAINT `favorites_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`),
-  ADD CONSTRAINT `favorites_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `favorites_project_id_foreign` FOREIGN KEY (`video_id`) REFERENCES `videos` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `favorites_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`),
-  ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `orders_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `projects`
 --
 ALTER TABLE `projects`
-  ADD CONSTRAINT `projects_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `projects_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `teacherconfirmations`
 --
 ALTER TABLE `teacherconfirmations`
-  ADD CONSTRAINT `teacherconfirmations_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `teacherconfirmations_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `videos`
 --
 ALTER TABLE `videos`
-  ADD CONSTRAINT `videos_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`);
+  ADD CONSTRAINT `videos_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE;
