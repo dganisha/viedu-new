@@ -90,6 +90,24 @@
         })
       })
     </script>
+    @if(Request::segment(2) == 'channel')
+    <script type="text/javascript">
+      $(document).on('click', '.delete-video', function() {
+          $('.modal-title').text('Konfirmasi Hapus Video');
+          $('#id_show').val($(this).data('id'));
+          $('#deleteVideo').modal('show');
+      });
+
+      $(document).on('click', '.edit-video', function() {
+          $('.modal-title').text('Konfirmasi Edit Video');
+          $('#videoid_show').val($(this).data('id'));
+          $('#project_id_show').val($(this).data('project'));
+          $('#show_title').val($(this).data('title'));
+          $('#show_desk').val($(this).data('desk'));
+          $('#editVideo').modal('show');
+      });
+    </script>
+    @endif
     @yield('script')
 </body>
 

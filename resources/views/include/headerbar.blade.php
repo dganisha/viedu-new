@@ -30,12 +30,12 @@
                 </li>
                 @endif
                 <li class="nav-item">
-                    @if(Auth::user()->role == 'teacher')
-                        @php $link = "/vendor/profile" @endphp
-                    @else   
-                        @php $link = "/member/profile" @endphp
+                    @if(Auth::user()->role == 'teacher' || Auth::user()->role == 'administrator')
+                    <a href="/vendor/profile" class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Teacher Account Settings</span></a>
                     @endif
-                    <a href="{{ $link }}" class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Account</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/member/profile" class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Member Account Settings</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link"
