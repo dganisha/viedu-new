@@ -52,6 +52,10 @@ Route::group(['middleware' => ['auth','VerifyVendor']], function (){
 	Route::post('/vendor/channel/add', 'TeacherController@add_channel');
 	Route::get('/vendor/channel/{namachannel}/{id}', 'TeacherController@show_channel');
 	Route::post('/vendor/channel/video/add', 'TeacherController@add_video');
+	Route::post('/vendor/channel/delete', 'TeacherController@delete_channel');
+	Route::post('/vendor/channel/video/delete','TeacherController@delete_video');
+	Route::post('/vendor/channel/edit', 'TeacherController@edit_channel');
+	Route::post('/vendor/channel/video/edit', 'TeacherController@edit_video');
 });
 
 //ADMINISTRATOR

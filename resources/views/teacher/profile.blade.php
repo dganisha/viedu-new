@@ -35,6 +35,13 @@
                                 <p></p>
                                 <p><i class="fa fa-quote-left"></i> {{ $dataGuru->bio }} <i class="fa fa-quote-right"></i> </p>
                                 <hr>
+                                @if($dataGuru->verifikasi == 'non-verified')
+                                <div class="alert alert-warning">
+                                  <h4>Hello <b>{{ Auth::user()->name }}</b>!</h4>
+                                  Your account will be confirmed , please waiting for verified your account by Administrator.<br>
+                                  <small>Proses verifikasi 1-2 hari kerja</small>
+                                </div>
+                                @endif
                             </div>
 
                             <ul class="nav nav-tabs nav-justified md-tabs purple-gradient" id="myTabJust" role="tablist">
@@ -95,7 +102,7 @@
                                                         <!--Text-->
                                                         <p class="card-text">{{ str_limit($project->description, 40) }}
 </p>
-                                                        <a href="/vendor/channel/{{ urlSlug($project->title) }}/{{ $project->id }}" target="_blank" class="btn btn-primary btn-md">Buka Channel</a>
+                                                        <a href="/vendor/channel/{{ urlSlug($project->title) }}/{{ $project->id }}" class="btn btn-primary btn-md">Buka Channel</a>
                                                     </div>
 
                                                 </div>
